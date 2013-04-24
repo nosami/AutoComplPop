@@ -14,6 +14,8 @@ endif
 let g:loaded_acp = 1
 
 " }}}1
+"
+"
 "=============================================================================
 " FUNCTION: {{{1
 
@@ -30,6 +32,7 @@ function s:makeDefaultBehavior()
         \   '*'      : [],
         \   'ruby'   : [],
         \   'python' : [],
+        \   'cs'     : [],
         \   'perl'   : [],
         \   'xml'    : [],
         \   'html'   : [],
@@ -75,6 +78,11 @@ function s:makeDefaultBehavior()
           \ })
   endfor
   "---------------------------------------------------------------------------
+  call add(behavs.cs, {
+        \   'command' : "\<C-x>\<C-o>",
+        \   'meets'   : 'acp#meetsForCSharpOmni',
+        \   'repeat'  : 0,
+        \ })
   call add(behavs.ruby, {
         \   'command' : "\<C-x>\<C-o>",
         \   'meets'   : 'acp#meetsForRubyOmni',
@@ -126,7 +134,7 @@ endfunction
 
 "-----------------------------------------------------------------------------
 call s:defineOption('g:acp_enableAtStartup', 1)
-call s:defineOption('g:acp_mappingDriven', 0)
+call s:defineOption('g:acp_mappingDriven', 1)
 call s:defineOption('g:acp_ignorecaseOption', 1)
 call s:defineOption('g:acp_completeOption', '.,w,b,k')
 call s:defineOption('g:acp_completeoptPreview', 0)
@@ -137,6 +145,8 @@ call s:defineOption('g:acp_behaviorKeywordCommand', "\<C-n>")
 call s:defineOption('g:acp_behaviorKeywordLength', 2)
 call s:defineOption('g:acp_behaviorKeywordIgnores', [])
 call s:defineOption('g:acp_behaviorFileLength', 0)
+call s:defineOption('g:acp_behaviorCsOmniMethodLength', 0)
+call s:defineOption('g:acp_behaviorCsOmniSymbolLength', 0)
 call s:defineOption('g:acp_behaviorRubyOmniMethodLength', 0)
 call s:defineOption('g:acp_behaviorRubyOmniSymbolLength', 1)
 call s:defineOption('g:acp_behaviorPythonOmniLength', 0)

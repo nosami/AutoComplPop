@@ -103,6 +103,11 @@ function acp#meetsForFile(context)
 endfunction
 
 "
+function acp#meetsForCSharpOmni(context)
+  return 1
+endfunction
+
+"
 function acp#meetsForRubyOmni(context)
   if !has('ruby')
     return 0
